@@ -63,11 +63,11 @@ AttackerName attacks PreyName
 Zadane obrażenia równe są liczbie jedynek, które wypadły na rzuconych kostkach. Liczba rzucanych kostek zależy od posiadanego przez uczestników ekwipunku oraz ich atrybutów i umiejętności. Atak może być atakiem w zwarciu lub z dystansu, ocenianie są obie możliwości i wybierana jest ta, która ma większą liczbę kostek, patrz poniżej: 
 ```pascal
 liczbaKostek := 
-	atrybut PHY uczestnika atakującego
-	+ modyfikatory wszystkich posiadanych broni do walki wręcz
-	+ jeżeli atakujący posiada umiejętność _Martial_ dodaj 1
-if (liczba kostek jest mniejsza o liczby kostek wynikających z posiadanych broni do walki na odległość) {
-	liczbaKostek := liczby kostek wynikających z posiadanych broni do walki na odległość
+	atrybut PHY uczestnika atakujacego
+	+ modyfikatory wszystkich posiadanych broni do walki wrecz
+	+ jezeli atakujacy posiada umiejetność _Martial_ dodaj 1
+if (liczba kostek jest mniejsza o liczby kostek wynikających z posiadanych broni do walki na odleglosc) {
+	liczbaKostek := liczby kostek wynikajacych z posiadanych broni do walki na odległosc
 }
 ```
 Otrzymana liczba kostek jest modyfikowana za pomocą standardowego modyfikator gry:
@@ -81,9 +81,9 @@ liczbaJedynek := liczba wyrzucanych jedynek
 ```
 Finalne obrażenia zadane uczestnikowi atakowanemu są zmniejszane o wartość redukcji obrażeń:
 ```pascal
-obrazenia := liczbaJedynek - redukcja obrażeń wynikająca z pancerzy uczestnika atakowanego
+obrazenia := liczbaJedynek - redukcja obrazen wynikajaca z pancerzy uczestnika atakowanego
 if (obrazenia > 0) {
-	zmniejsz atrybut VIT uczestnika atakowanego o wartość obrażeń
+	zmniejsz atrybut VIT uczestnika atakowanego o wartosc obrazen
 }
 ```
 
@@ -95,8 +95,8 @@ check ability Name ATR1 ATR2... [Skill1 Skill2...]
 
 Liczba kostek zależy od wartości przypisanej do podanych w komendzie atrybutów oraz posiadanych umiejęstności:
 ```pascal
-atrybut := wybierz atrybut z najmniejszą liczbą przypisanych punktów z listy atrybutów przekazanych w komendzie
-if (uczestnik gry posiada co najmniej jedną z umiejętności przekazanych w komendzie) {
+atrybut := wybierz atrybut z najmniejszą liczba przypisanych punktów z listy atrybutow przekazanych w komendzie
+if (uczestnik gry posiada co najmniej jedna z umiejetnosci przekazanych w komendzie) {
 	liczbaKostek := clamp(pobierzPunkty(atrybut), 2, 13)
 } else {
 	liczbaKostek := clamp(pobierzPunkty(atrybut), 1, 7)
@@ -108,13 +108,13 @@ liczbaKostek := liczbaKostek + standardowyModyfikator
 ```
 Program wykonuje symulację rzutów kostkami i bada liczbę wyrzuconych oczek:
 ```pascal
-wykonaj rzut kostakami wg. liczby kostek, gdy wypadnie 6 rzut jest powtórzony
+wykonaj rzut kostakami wg. liczby kostek, gdy wypadnie 6 rzut jest powtorzony
 if (wszytkie kostki miały wartość 5) {
-	wykonanie czynnosci zakończone krytyczną porażką 
-} else if (co najmniej jedna kostka miała wartość 1) {
-	wykonanie czynnosci zakończone sukcesem
+	wykonanie czynnosci zakonczone krytyczną porazka 
+} else if (co najmniej jedna kostka miala wartosc 1) {
+	wykonanie czynnosci zakonczone sukcesem
 } else {
-	wykonanie czynnosci zakończone porażką
+	wykonanie czynnosci zakonczone porazka
 }
 ```
 
