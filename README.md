@@ -28,7 +28,7 @@ Za posiadane złoto uczestnicy mogą nabywać zdefiniowany ekwipunek.
 ```console
 ParticipantName buys ItemName
 ```
-Ekwipunek jest podzielony na trzy kategorie: _Gear_, _Weapons_ oraz _Armor_. Broń modyfikuje atrybut _PHY_ (broń do walki w zwarciu) lub ma przypisaną stałą (niezależną od atrbybutów i umiejętności) liczbę kostek wykorzystywaną podczas ataku (broń do walki na odległość). Pancerz redukuje obrażenia oraz zmniejsza atrybut _PHY_. Sprzęt jest ogólną kategorią zawierającą przedmioty o niesprecyzowanym działaniu i przeznaczeniu.
+Ekwipunek jest podzielony na trzy kategorie: _Gear_, _Weapons_ oraz _Armor_. Broń modyfikuje atrybut _PHY_ (broń do walki w zwarciu) lub ma przypisaną stałą (niezależną od atrybutów i umiejętności) liczbę kostek wykorzystywaną podczas ataku (broń do walki na odległość). Pancerz redukuje obrażenia oraz zmniejsza atrybut _PHY_. Sprzęt jest ogólną kategorią zawierającą przedmioty o niesprecyzowanym działaniu i przeznaczeniu.
 
 Przykład:
 ```console
