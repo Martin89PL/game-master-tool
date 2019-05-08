@@ -65,8 +65,8 @@ Zadane obrażenia równe są liczbie jedynek, które wypadły na rzuconych kostk
 liczbaKostek := 
 	atrybut PHY uczestnika atakujacego
 	+ modyfikatory wszystkich posiadanych broni do walki wrecz
-	+ jezeli atakujacy posiada umiejetność _Martial_ dodaj 1
-if (liczba kostek jest mniejsza o liczby kostek wynikających z posiadanych broni do walki na odleglosc) {
+	+ jezeli atakujacy posiada umiejetnosc 'Martial' dodaj 1
+if (liczba kostek jest mniejsza o liczby kostek wynikajacych z posiadanych broni do walki na odleglosc) {
 	liczbaKostek := liczby kostek wynikajacych z posiadanych broni do walki na odległosc
 }
 ```
@@ -95,7 +95,7 @@ check ability Name ATR1 ATR2... [Skill1 Skill2...]
 
 Liczba kostek zależy od wartości przypisanej do podanych w komendzie atrybutów oraz posiadanych umiejęstności:
 ```pascal
-atrybut := wybierz atrybut z najmniejszą liczba przypisanych punktów z listy atrybutow przekazanych w komendzie
+atrybut := wybierz atrybut z najmniejsza liczba przypisanych punktow z listy atrybutow przekazanych w komendzie
 if (uczestnik gry posiada co najmniej jedna z umiejetnosci przekazanych w komendzie) {
 	liczbaKostek := clamp(pobierzPunkty(atrybut), 2, 13)
 } else {
@@ -109,7 +109,7 @@ liczbaKostek := liczbaKostek + standardowyModyfikator
 Program wykonuje symulację rzutów kostkami i bada liczbę wyrzuconych oczek:
 ```pascal
 wykonaj rzut kostakami wg. liczby kostek, gdy wypadnie 6 rzut jest powtorzony
-if (wszytkie kostki miały wartość 5) {
+if (wszytkie kostki mialy wartosc 5) {
 	wykonanie czynnosci zakonczone krytyczną porazka 
 } else if (co najmniej jedna kostka miala wartosc 1) {
 	wykonanie czynnosci zakonczone sukcesem
