@@ -1,12 +1,12 @@
 # Narzędzie wspomagające prowadzenie sesji RPG
 
-Zadaniem uczestników **Coding Dojo Silesia** jest zaimplentowanie konsolowego narzędzia wspomagającego prowadzenie sesji RPG opartych o system [CRAM](http://onepagerpg.com/files/CRAM.pdf). [CRAM](http://onepagerpg.com/files/CRAM.pdf) jest to jednostronicy dokument zawierający zbiór reguł i mechanik prostego systemu rpg. W zadaniu należy zaimplementować kompletne zasady systemu z wyłączeniem spalania punktów szczęścia (atrybut _LUC_) za dodatkowy rzut kością. Dostępne w programie komendy zaostały zaprezentowane poniżej.
+Zadaniem uczestników **Coding Dojo Silesia** jest zaimplentowanie konsolowego narzędzia wspomagającego prowadzenie sesji RPG opartych o system [CRAM](http://onepagerpg.com/files/CRAM.pdf). [CRAM](http://onepagerpg.com/files/CRAM.pdf) jest to jednostronicowy dokument zawierający zbiór reguł i mechanik prostego systemu RPG. W zadaniu należy zaimplementować kompletne zasady systemu z wyłączeniem spalania punktów szczęścia (atrybut _LUC_) za dodatkowy rzut kością. Dostępne w programie komendy zostały zaprezentowane poniżej.
 
 W systemie [CRAM](http://onepagerpg.com/files/CRAM.pdf) powodzenie wszystkich czynności jest zależne od rzutów standardowymi kośćmi 1d6.
 
 ## Lista dostępnych komend
 
-Poniżej znajduje się lista komend, które Mistrz Gry będzie wprowadzał na standardowe wejście programu. Aplikacja powinna każdorazowo powiadomić użytkownika o sukcesie bądź porażce wykonania komendy za pomocą komunikatu wyświetlonego na standardowyj wyjściu. Mistrz Gry może **stworzyć uczestnika gry**, **ustawić standardowy modyfikator gry**, **zakupić ekwipunek uczestnikowi**, **wykonać atak jednego uczestnika na drugim uczestniku** a także **sprawdzić czy uczestnik może wykonać pewną czynność**.
+Poniżej znajduje się lista komend, które Mistrz Gry będzie wprowadzał na standardowe wejście programu. Aplikacja powinna każdorazowo powiadomić użytkownika o sukcesie bądź porażce wykonania komendy za pomocą komunikatu wyświetlonego na standardowym wyjściu. Mistrz Gry może **stworzyć uczestnika gry**, **ustawić standardowy modyfikator gry**, **zakupić ekwipunek uczestnikowi**, **wykonać atak jednego uczestnika na drugim uczestniku**, a także **sprawdzić czy uczestnik może wykonać pewną czynność**.
 
 ### Tworzenie uczestnika gry
 Komendą tworzącą uczestnika gry (np. gracza lub potwora) jest:
@@ -55,12 +55,12 @@ The Oracle: The world is now a better place.
 ```
 
 ### Atak
-Uczestnicy gry mogą się atakować. Atak kończy się redukcją atrybutu _VIT_ uczestnika atakowanego, a gdy atrybut _VIT_ uczestnika jest mniejszy niż 1 zostaje on uznany za martwego i nie bierze udziału w dalszej grze.
+Uczestnicy gry mogą się atakować. Atak kończy się redukcją atrybutu _VIT_ uczestnika atakowanego, a gdy wartość atrybutu _VIT_ uczestnika jest mniejsza niż 1 zostaje on uznany za martwego i nie bierze udziału w dalszej grze.
 ```console
 AttackerName attacks PreyName
 ```
 
-Zadane obrażenia równe są liczbie jedynek, które wypadły na rzuconych kostkach. Liczba rzucanych kostek zależy od posiadanego przez uczestników ekwipunku oraz ich atrybutów i umiejętności. Atak może być atakiem w zwarciu lub z dystansu, ocenianie są obie możliwości i wybierana jest ta, która ma większą liczbę kostek, patrz poniżej: 
+Zadane obrażenia równe są liczbie jedynek, które wypadły na rzuconych kostkach. Liczba rzucanych kostek zależy od posiadanego przez uczestników ekwipunku oraz ich atrybutów i umiejętności. Atak może być atakiem w zwarciu lub z dystansu, ocenianie są obie możliwości i wybierana jest ta, która ma większą liczbę kostek. Patrz poniższy pseudokod: 
 ```pascal
 liczbaKostek := 
 	atrybut PHY uczestnika atakujacego
@@ -76,7 +76,7 @@ liczbaKostek := liczbaKostek + standardowyModyfikator
 ```
 Program wykonuje symulację rzutów kostkami i bada liczbę wyrzuconych jedynek:
 ```pascal
-wykonaj rzut kostakami wg. liczby kostek
+wykonaj rzut kostkami wg. uzyskanej liczby kostek
 liczbaJedynek := liczba wyrzucanych jedynek
 ```
 Finalne obrażenia zadane uczestnikowi atakowanemu są zmniejszane o wartość redukcji obrażeń:
@@ -108,7 +108,7 @@ liczbaKostek := liczbaKostek + standardowyModyfikator
 ```
 Program wykonuje symulację rzutów kostkami i bada liczbę wyrzuconych oczek:
 ```pascal
-wykonaj rzut kostakami wg. liczby kostek, gdy wypadnie 6 rzut jest powtorzony
+wykonaj rzut kostkami wg. uzyskanej liczby kostek i gdy wypadnie 6 oczek powtorz rzut
 if (wszytkie kostki mialy wartosc 5) {
 	wykonanie czynnosci zakonczone krytyczną porazka 
 } else if (co najmniej jedna kostka miala wartosc 1) {
