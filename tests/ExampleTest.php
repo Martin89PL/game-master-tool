@@ -1,4 +1,6 @@
 <?php 
+namespace GameMasterTool;
+
 class ExampleTest extends \Codeception\Test\Unit
 {
     protected function _before()

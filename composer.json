@@ -9,6 +9,16 @@
             "email": "nowakowski.arkadiusz@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-0": {
+            "GameMasterTool": ["src", "tests"]
+        }
+    },
+    "scripts": {
+        "start": [
+            "php src/prompt.php"
+        ]
+    },
     "require": {},
     "require-dev": {
         "codeception/codeception": "^3.0"

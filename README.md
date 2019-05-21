@@ -1,4 +1,4 @@
-# Narzędzie wspomagające prowadzenie sesji RPG
+# Narzędzie wspomagające prowadzenie sesji RPG w systemie CRAM
 
 Zadaniem uczestników **Coding Dojo Silesia** jest zaimplentowanie konsolowego narzędzia wspomagającego prowadzenie sesji RPG opartych o system [CRAM](http://onepagerpg.com/files/CRAM.pdf). [CRAM](http://onepagerpg.com/files/CRAM.pdf) jest to jednostronicowy dokument zawierający zbiór reguł i mechanik prostego systemu RPG. W zadaniu należy zaimplementować kompletne zasady systemu z wyłączeniem spalania punktów szczęścia (atrybut _LUC_) za dodatkowy rzut kością. Dostępne w programie komendy zostały zaprezentowane poniżej.
 
@@ -126,3 +126,27 @@ The Oracle: The result: critical failure
 
 ## Wyrazy uznania
 Zadanie wzorowane jest doskonałym systemem RPG [CRAM](http://onepagerpg.com/files/CRAM.pdf), którego autorem jest  Rusty Gerard.
+
+## Uruchomienie
+
+Repozytorium zawiera minimalistyczny starter pozwalający na szybkie rozpoczęcie implementacji zadania. W folderze [src](src) znajduje się plik [prompt.php](src/prompt.php), który zawiera
+niewielki fragment kodu wyświetlający wiadomość powitalną oraz prostą zachętę. Wprowadzony przez użytownika tekst przechowywany jest w zmiennej `$input`.
+
+Implementowany kod nie powinien być pozostawiony bez testów jednostkowych (!), w tym celu załączyliści [Codeception](https://codeception.com/docs/05-UnitTests), które zainstalujesz za pomocą [Composera](https://getcomposer.org/).
+Przykładowy test znajduje się w katalogu [tests](tests).
+
+## Podstawowe komendy
+
+Aby uruchomić program należy w terminalu wpisać komendę:
+```
+php src/prompt.php
+```
+Aby uruchomić **wszystkie** testy należy w terminalu wpisać komendę:
+```
+vendor/bin/codecept run unit
+```
+
+## Najlepsze praktyki
+
+Waszym najlepszym przyjacielem powinny być wzorce projektowe oraz mnemonik SOLID. Dobre zaprojektowanie związków w klasach jest kluczowe dla efektywnej implementacji tego zadania. Postarajcie się zainwestować odpowiednią ilość
+czasu na analizę i projekt kodu Waszego narzędzia.
