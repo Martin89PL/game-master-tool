@@ -1,0 +1,16 @@
+{
+    "name": "coding-dojo-silesia/game-master-tool",
+    "description": "A simple tool that supports the Game Master during CRAM RPG sessions",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Arkadiusz Nowakowski",
+            "email": "nowakowski.arkadiusz@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "codeception/codeception": "^3.0"
+    }
+}
