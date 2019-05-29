@@ -1,12 +1,20 @@
 <?php
+
+use GameMasterTool\Command\Invoker;
+use GameMasterTool\Factory\CommandFactory;
+use GameMasterTool\GameState;
+
 require_once __DIR__ . '/../vendor/autoload.php';
 
 $input = '';
+$invoker = new Invoker();
 $gameState = new GameState();
 GameMasterTool\Terminal::printWelcomeMessage('Put your names here');
 while ($input !== 'exit') {
     GameMasterTool\Terminal::printCommandPrompt();
     $input = rtrim(fgets(STDIN));
-    $result = $gameState->run($input);
-    echo $result;
+
+    $command = CommandFactory::create($gameState, $input);
+    $invoker->setCommand($command);
+    $invoker->run($input);
 }
