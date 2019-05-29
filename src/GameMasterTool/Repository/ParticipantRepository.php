@@ -18,4 +18,9 @@ class ParticipantRepository implements ParticipantRepositoryInterface
     {
         // TODO: Implement findOneById() method.
     }
+
+    public function findAll(): array
+    {
+        return $this->participants;
+    }
 }
