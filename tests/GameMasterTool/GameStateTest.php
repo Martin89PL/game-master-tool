@@ -14,11 +14,11 @@ class GameStateTest extends \Codeception\Test\Unit
     }
 
     // tests
-    public function testShouldReturnInputByGameState()
+    public function testShouldCreateNewGameStateWithoutParticipants()
     {
-        $gameState = new GameState();
-        $result = $gameState->run('some command');
-
-        self::assertEquals('some command', $result);
+        /** @var \PHPUnit\Framework\MockObject\MockObject | \GameMasterTool\Service\ParticipantService $participantService */
+        $participantService= self::createMock(\GameMasterTool\Service\ParticipantService::class);
+        $gameState = new GameState($participantService);
+        self::assertInstanceOf(GameState::class, $gameState);
     }
 }
