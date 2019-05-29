@@ -2,10 +2,22 @@
 
 namespace GameMasterTool;
 
+use GameMasterTool\Service\ParticipantService;
+
 class GameState
 {
-    public function run(string $promptCommand): string
+    /**
+     * @var ParticipantService
+     */
+    private $participantService;
+
+    public function __construct(ParticipantService $participantService)
     {
-        return $promptCommand;
+        $this->participantService = $participantService;
+    }
+
+    public function createParticipant(string $prompt): void
+    {
+        $this->participantService->add($prompt);
     }
 }
