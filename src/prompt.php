@@ -1,6 +1,7 @@
 <?php
 
 use GameMasterTool\Command\Invoker;
+use GameMasterTool\DTO\PromptDTO;
 use GameMasterTool\Factory\CommandFactory;
 use GameMasterTool\GameState;
 
@@ -14,7 +15,7 @@ while ($input !== 'exit') {
     GameMasterTool\Terminal::printCommandPrompt();
     $input = rtrim(fgets(STDIN));
 
-    $command = CommandFactory::create($gameState, $input);
+    $command = CommandFactory::create($gameState, new PromptDTO($input));
     $invoker->setCommand($command);
     $invoker->run($input);
 }
