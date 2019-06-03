@@ -16,8 +16,8 @@ class GameState
         $this->participantService = $participantService;
     }
 
-    public function createParticipant(string $prompt): void
+    public function createParticipant(): void
     {
-        $this->participantService->add($prompt);
+        $this->participantService->add();
     }
 }

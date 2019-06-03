@@ -4,13 +4,14 @@ namespace GameMasterTool\Factory;
 
 use GameMasterTool\Command\CreateParticipantCommand;
 use GameMasterTool\Command\CommandInterface;
+use GameMasterTool\DTO\PromptDTO;
 use GameMasterTool\GameState;
 
 class CommandFactory
 {
-    public static function create(GameState $gameState, string $prompt): CommandInterface
+    public static function create(GameState $gameState, PromptDTO $prompt): CommandInterface
     {
-        if (preg_match('/add/i', $prompt)) {
+        if ($prompt->offsetExists(0) && $prompt->offsetGet(0) === 'add') {
             return new CreateParticipantCommand($gameState, $prompt);
         }
 

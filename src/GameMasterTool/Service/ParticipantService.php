@@ -17,7 +17,7 @@ class ParticipantService
         $this->participantRepository = $participantRepository;
     }
 
-    public function add(string $input)
+    public function add()
     {
         $this->participantRepository->save(new Participant());
     }

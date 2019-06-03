@@ -2,6 +2,7 @@
 
 namespace GameMasterTool\Command;
 
+use GameMasterTool\DTO\PromptDTO;
 use GameMasterTool\GameState;
 
 class CreateParticipantCommand implements CommandInterface
@@ -10,12 +11,13 @@ class CreateParticipantCommand implements CommandInterface
      * @var GameState
      */
     private $gameState;
+
     /**
-     * @var string
+     * @var PromptDTO
      */
     private $prompt;
 
-    public function __construct(GameState $gameState, string $prompt)
+    public function __construct(GameState $gameState, PromptDTO $prompt)
     {
         $this->gameState = $gameState;
         $this->prompt = $prompt;
