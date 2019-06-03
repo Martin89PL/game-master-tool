@@ -1,6 +1,7 @@
 <?php
 
 use GameMasterTool\Command\CreateParticipantCommand;
+use GameMasterTool\DTO\PromptDTO;
 use GameMasterTool\Factory\CommandFactory;
 use GameMasterTool\GameState;
 
@@ -16,13 +17,12 @@ class CommandFactoryTest extends \Codeception\Test\Unit
     }
 
     // tests
-    public function testShoulReturnAddParticipantCommand()
+    public function testShouldReturnAddParticipantCommand()
     {
         /** @var \PHPUnit\Framework\MockObject\MockObject | \GameMasterTool\Service\ParticipantService $participantService */
         $participantService = self::createMock(\GameMasterTool\Service\ParticipantService::class);
         $gameState = new GameState($participantService);
-        $commmandPromptInput = 'add ParticipantName x PHY x MEN x VIT x LUC Skill1 Skill2';
-        $addParticipantCommand = CommandFactory::create($gameState, $commmandPromptInput);
+        $addParticipantCommand = CommandFactory::create($gameState, new PromptDTO('add ParticipantName x PHY x MEN x VIT x LUC Skill1 Skill2'));
         self::assertInstanceOf(CreateParticipantCommand::class, $addParticipantCommand);
     }
 
@@ -33,9 +33,6 @@ class CommandFactoryTest extends \Codeception\Test\Unit
         /** @var \PHPUnit\Framework\MockObject\MockObject | \GameMasterTool\Service\ParticipantService $participantService */
         $participantService = self::createMock(\GameMasterTool\Service\ParticipantService::class);
         $gameState = new GameState($participantService);
-        $commmandPromptInput = 'bad command';
-        CommandFactory::create($gameState, $commmandPromptInput);
+        CommandFactory::create($gameState, new PromptDTO('bad command'));
     }
-
-
 }

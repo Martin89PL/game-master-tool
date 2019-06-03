@@ -1,4 +1,7 @@
-<?php 
+<?php
+
+use GameMasterTool\Command\CreateParticipantCommand;
+
 class CreateParticipantCommandTest extends \Codeception\Test\Unit
 {
 
@@ -17,8 +20,7 @@ class CreateParticipantCommandTest extends \Codeception\Test\Unit
         $gameStateMock = self::createMock(\GameMasterTool\GameState::class);
         $gameStateMock->expects(self::once())->method('createParticipant');
 
-        $prompt  = 'add participant';
-        $createParticipantCommand = new \GameMasterTool\Command\CreateParticipantCommand($gameStateMock, $prompt);
+        $createParticipantCommand = new CreateParticipantCommand($gameStateMock, new \GameMasterTool\DTO\PromptDTO('add participant'));
         $createParticipantCommand->execute();
     }
 }

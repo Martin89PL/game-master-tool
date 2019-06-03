@@ -17,12 +17,9 @@ class ParticipantServiceTest extends \Codeception\Test\Unit
     // tests
     public function testShouldCreateOneParticipant()
     {
-        $prompt = 'add participant';
-
         $participantRepository = new ParticipantRepository();
-
         $participantService = new ParticipantService($participantRepository);
-        $participantService->add($prompt);
+        $participantService->add();
 
         self::assertCount(1, $participantRepository->findAll());
     }
