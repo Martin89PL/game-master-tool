@@ -1,20 +1,22 @@
 <?php
 
-namespace GameMasterTool\VO;
+namespace GameMasterTool\ValueObject;
 
-use GameMasterTool\DTO\PromptDTO;
+use GameMasterTool\DTO\Prompt;
 
-class AddParticipant
+class CreateParticipant
 {
     private $participantsProps = [];
 
-    public function __construct(PromptDTO $prompt)
+    public function __construct(Prompt $prompt)
     {
-        $prompt->offsetUnset(0);
+        $this->name = sprintf('%s %s',$prompt->offsetGet(1),$prompt->offsetGet(2));
         $this->PHY = $prompt->offsetGet($prompt->getIndexByValue('PHY') - 1);
         $this->MEN = $prompt->offsetGet($prompt->getIndexByValue('MEN') - 1);
         $this->VIT = $prompt->offsetGet($prompt->getIndexByValue('VIT') - 1);
         $this->LUC = $prompt->offsetGet($prompt->getIndexByValue('LUC') - 1);
+        $this->skill1 = $prompt->offsetGet($prompt->count() - 2);
+        $this->skill2 = $prompt->offsetGet($prompt->count() - 1);
     }
 
     public function __set($name, $value)

@@ -2,6 +2,7 @@
 
 namespace GameMasterTool;
 
+use GameMasterTool\DTO\Prompt;
 use GameMasterTool\Service\ParticipantService;
 
 class GameState
@@ -16,8 +17,8 @@ class GameState
         $this->participantService = $participantService;
     }
 
-    public function createParticipant(): void
+    public function createParticipant($prompt): void
     {
-        $this->participantService->add();
+        $this->participantService->add($prompt);
     }
 }

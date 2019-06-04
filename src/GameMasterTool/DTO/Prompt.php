@@ -2,7 +2,7 @@
 
 namespace GameMasterTool\DTO;
 
-class PromptDTO extends \ArrayObject
+class Prompt extends \ArrayObject
 {
     public function __construct(string $prompt)
     {

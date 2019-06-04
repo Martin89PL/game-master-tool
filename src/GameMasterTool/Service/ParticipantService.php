@@ -2,6 +2,7 @@
 
 namespace GameMasterTool\Service;
 
+use GameMasterTool\DTO\Prompt;
 use GameMasterTool\Entity\Participant;
 use GameMasterTool\Repository\ParticipantRepositoryInterface;
 
@@ -17,7 +18,7 @@ class ParticipantService
         $this->participantRepository = $participantRepository;
     }
 
-    public function add()
+    public function add(Prompt $prompt)
     {
         $this->participantRepository->save(new Participant());
     }
